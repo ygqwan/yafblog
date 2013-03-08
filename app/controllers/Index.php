@@ -1,11 +1,14 @@
 <?php
 
+use Db\PostsModel;
+
 class IndexController extends ApplicationController {
 
     protected $layout = 'frontend';
 
     public function indexAction() {
-        $this->heading = 'Home Page';
+        dump(PostsModel::getInstance());
+       $this->heading = 'Yaf Blog';
     }
 
 }

@@ -16,7 +16,8 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract {
 
     public function _initDatabase(Yaf\Dispatcher $dispatcher) {
         $arrConf = $this->config->database->mysql->toArray();
-        new Zend\Db\Adapter\Adapter($arrConf);
+        $adapter = new Zend\Db\Adapter\Adapter($arrConf);
+        Zend\Db\TableGateway\Feature\GlobalAdapterFeature::setStaticAdapter($adapter);
     }
 
     public function _initPlugins(Yaf\Dispatcher $dispatcher) {
@@ -26,7 +27,7 @@ class Bootstrap extends \Yaf\Bootstrap_Abstract {
     }
 
     public function _initLoader(Yaf\Dispatcher $dispatcher) {
-        
+
     }
 
     public function _initRoute(Yaf\Dispatcher $dispatcher) {
